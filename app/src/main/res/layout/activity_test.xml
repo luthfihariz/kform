@@ -9,31 +9,43 @@
         android:id="@+id/email"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="This is an email" />
+        android:hint="This is an email" />
 
     <EditText
         android:id="@+id/fullname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Full Name with minimum 3 characters" />
+        android:hint="Full Name with minimum 3 characters" />
 
     <EditText
         android:id="@+id/phoneNumber"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Phone min 8 chars and max 13 chars" />
+        android:hint="Phone min 8 chars and max 13 chars" />
 
     <EditText
         android:id="@+id/password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Password must alpha numeric mixed case" />
+        android:hint="Password must alpha numeric mixed case" />
 
     <EditText
         android:id="@+id/confirmPassword"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Should match password" />
+        android:hint="Should match password" />
+
+    <android.support.design.widget.TextInputLayout
+        android:id="@+id/tilSample"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Text input layout sample">
+
+        <android.support.design.widget.TextInputEditText
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content" />
+
+    </android.support.design.widget.TextInputLayout>
 
     <Button
         android:id="@+id/submit"
