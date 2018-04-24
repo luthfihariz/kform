@@ -1,56 +1,99 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:orientation="vertical"
-    android:padding="16dp">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/email"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="This is an email" />
+        android:orientation="vertical"
+        android:padding="16dp">
 
-    <EditText
-        android:id="@+id/fullname"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Full Name with minimum 3 characters" />
-
-    <EditText
-        android:id="@+id/phoneNumber"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Phone min 8 chars and max 13 chars" />
-
-    <EditText
-        android:id="@+id/password"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Password must alpha numeric mixed case" />
-
-    <EditText
-        android:id="@+id/confirmPassword"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Should match password" />
-
-    <android.support.design.widget.TextInputLayout
-        android:id="@+id/tilSample"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="Text input layout sample">
-
-        <android.support.design.widget.TextInputEditText
+        <EditText
+            android:id="@+id/email"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            android:hint="This is an email" />
 
-    </android.support.design.widget.TextInputLayout>
+        <EditText
+            android:id="@+id/fullname"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Full Name with minimum 3 characters" />
 
-    <Button
-        android:id="@+id/submit"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Validate" />
+        <EditText
+            android:id="@+id/phoneNumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Phone min 8 chars and max 13 chars" />
 
-</LinearLayout>
+        <EditText
+            android:id="@+id/password"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Password must alpha numeric mixed case" />
+
+        <EditText
+            android:id="@+id/confirmPassword"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Should match password" />
+
+        <EditText
+            android:id="@+id/etOffFocus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="EditText off focus validation" />
+
+        <EditText
+            android:id="@+id/etSampleTyping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="EditText typing validation" />
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilSample"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Text input layout basic validation">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilSampleFocus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Text input layout off focus validation">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+        <android.support.design.widget.TextInputLayout
+            android:id="@+id/tilSampleTyping"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:hint="Text input layout typing validation">
+
+            <android.support.design.widget.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+        </android.support.design.widget.TextInputLayout>
+
+
+        <Button
+            android:id="@+id/submit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Validate" />
+
+    </LinearLayout>
+
+</ScrollView>

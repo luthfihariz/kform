@@ -4,7 +4,6 @@ import android.support.design.widget.TextInputLayout
 import android.text.Editable
 import android.text.TextWatcher
 import android.util.Patterns
-import android.view.View
 import android.widget.EditText
 import android.widget.TextView
 
@@ -24,23 +23,33 @@ fun EditText.validate(validator: (String) -> Boolean, errorMessage: String, erro
 }
 
 fun TextInputLayout.validate(validator: (String) -> Boolean, errorMessage: String) {
-    if (!validator(editText!!.toString())) {
-        error = errorMessage
+    error = if (validator(editText!!.text.toString())) {
+        null
+    } else {
+        errorMessage
+    }
+}
+
+fun EditText.validateOffFocus(validator: (String) -> Boolean, errorMessage: String, errorView: TextView? = null) {
+    setOnFocusChangeListener { _, isFocus ->
+        if (!isFocus) {
+            validate(validator, errorMessage, errorView)
+        }
+    }
+}
+
+fun EditText.validateWhileTyping(validator: (String) -> Boolean, errorMessage: String, errorView: TextView? = null) {
+    afterTextChanged {
+        validate(validator, errorMessage, errorView)
     }
 }
 
 fun TextInputLayout.validateWhileTyping(validator: (String) -> Boolean, errorMessage: String) {
-    editText?.afterTextChanged {
-        validate(validator, errorMessage)
-    }
+    editText?.validateWhileTyping(validator, errorMessage)
 }
 
-fun TextInputLayout.validateOutFocus(validator: (String) -> Boolean, errorMessage: String) {
-    editText?.setOnFocusChangeListener { _, isFocus ->
-        if (!isFocus) {
-            validate(validator, errorMessage)
-        }
-    }
+fun TextInputLayout.validateOffFocus(validator: (String) -> Boolean, errorMessage: String) {
+    editText?.validateOffFocus(validator, errorMessage)
 }
 
 fun EditText.afterTextChanged(func: (String) -> Unit) {
@@ -66,9 +75,9 @@ fun String.maximum(max: Int) = isNotEmpty() && length <= max
 fun String.minimum(min: Int) = isNotEmpty() && length >= min
 
 object Scheme {
-    const val ALPHA_NUMERIC = ""
-    const val ALPHA_MIXED_CASE = ""
-    const val NUMERIC = ""
+    const val ALPHA_NUMERIC = "[a-zA-Z0-9]"
+    const val ALPHA_MIXED_CASE = "[a-zA-Z]"
+    const val NUMERIC = "[0-9]"
     const val ALPHA_NUMERIC_MIXED_CASE = ""
 }
 
